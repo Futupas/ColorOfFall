@@ -44,8 +44,17 @@ let getPhoto = async () => {
         json = await response.json();
     }
 
-    let src = json.photos[0].src.portrait;
-    document.getElementById('img').src = `${src}`;
+    let smallSrc = json.photos[0].src.small;
+    let bigSrc = json.photos[0].src.large2x;
+    let image = document.getElementById('img');
+    image.src = `${smallSrc}`;
+    image.bigSrc = `${bigSrc}`;
+    image.onload = () => {
+        if (image.bigSrc) {
+            image.src = image.bigSrc;
+            image.bigSrc = undefined;
+        }
+    };
 }
 
 function map(num, frombottom, fromtop, tobottom, totop) {
