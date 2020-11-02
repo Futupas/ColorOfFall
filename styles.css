@@ -45,3 +45,69 @@ body {
     color: black;
     text-align: center;
 }
+
+#info{
+    position: fixed;
+    top: -80vh;
+    left: 0px;
+    width: 100vw;
+    height: 90vh;
+    background-color: #000000;
+    border-bottom-left-radius: 50vw 10vh;
+    border-bottom-right-radius: 50vw 10vh;
+    border: none;
+    transition: top .3s ease-out;
+    overflow: hidden;
+}
+#info.expanded{
+    top: 0vh;
+}
+
+#info > #text {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 80vh;
+    overflow: auto;
+    color: #fff;
+    padding: 1vw;
+    text-align: justify;
+    font-size: large;
+}
+
+#info > #btn {
+    position: absolute;
+    top: 80vh;
+    left: 0px;
+    width: 100%;
+    height: 10vh;
+}
+#info > #btn > .left {
+    position: absolute;
+    top: 4.5vh;
+    left: calc(50vw - 3vh - 4.24vh + .25vh);
+    width: 8.485vh;
+    height: 1vh;
+    background-color: #fff;
+    border-radius: .5vh;
+    transform: rotate(45deg);
+    transition: transform .3s ease-out;
+}
+#info > #btn > .right {
+    position: absolute;
+    top: 4.5vh;
+    left: calc(50vw + 3vh - 4.24vh - .25vh);
+    width: 8.485vh;
+    height: 1vh;
+    background-color: #fff;
+    border-radius: .5vh;
+    transform: rotate(-45deg);
+    transition: transform .3s ease-out;
+}
+#info.expanded > #btn > .left {
+    transform: rotate(-45deg);
+}
+#info.expanded > #btn > .right {
+    transform: rotate(45deg);
+}
