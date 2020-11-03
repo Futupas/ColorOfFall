@@ -2,12 +2,25 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
+    /* -ms-overflow-style: none;
+    scrollbar-width: none; */
 }
+/* ::-webkit-scrollbar {
+    display:none;
+} */
 
 body {
-    /* overflow-y: hidden; */
+    overflow-x: hidden;
+}
+
+#scrollcontainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: auto;
+    overflow-y: hidden;
 }
 #img{
     position: fixed;
@@ -23,7 +36,6 @@ body {
     top: 0px;
     left: 0px;
     height: 100vh;
-
 }
 
 #waittextdiv{
@@ -105,7 +117,4 @@ body {
     transform: rotate(-45deg);
 }
 
-::-webkit-scrollbar {
-    display:none;
-}
 

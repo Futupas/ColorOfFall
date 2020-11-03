@@ -86,12 +86,12 @@ function setHueRotate() {
     let divScroll = map(hueRotate, 0, 360, 0, PARAMATERS.divSize*document.documentElement.clientWidth);
     let resultString = `hue-rotate(${hueRotate}deg) `;
 
-    document.documentElement.scrollTo(divScroll, 0);
-    document.body.onscroll = (e) => {
-        let scroll = window.pageXOffset || document.documentElement.scrollLeft;
+    document.getElementById('scrollcontainer').scrollTo(divScroll, 0);
+    document.getElementById('scrollcontainer').onscroll = (e) => {
+        let scroll = document.getElementById('scrollcontainer').scrollLeft;
         let hueRotate = map(scroll, 0, PARAMATERS.divSize*document.documentElement.clientWidth, 0, 360);
+        console.log(hueRotate);
         document.getElementById('img').style.filter = FILTER_STRING + `hue-rotate(${hueRotate}deg) `;
-        document.getElementById('info').style.marginLeft = scroll + 'px';
     };
 
     return resultString;
