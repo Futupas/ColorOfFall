@@ -91,6 +91,7 @@ function setHueRotate() {
         let scroll = window.pageXOffset || document.documentElement.scrollLeft;
         let hueRotate = map(scroll, 0, PARAMATERS.divSize*document.documentElement.clientWidth, 0, 360);
         document.getElementById('img').style.filter = FILTER_STRING + `hue-rotate(${hueRotate}deg) `;
+        document.getElementById('info').style.marginLeft = scroll + 'px';
     };
 
     return resultString;

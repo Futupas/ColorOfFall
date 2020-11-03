@@ -7,7 +7,7 @@
 }
 
 body {
-    overflow-y: hidden;
+    /* overflow-y: hidden; */
 }
 #img{
     position: fixed;
@@ -39,7 +39,7 @@ body {
 }
 
 #info{
-    position: fixed;
+    position: absolute;
     top: 90vh;
     left: 0px;
     width: 100vw;
