@@ -106,7 +106,7 @@ async function main() {
 (async () => {
     main();
 
-    document.getElementById('info').onclick = (e) => {
+    document.getElementById('btn').onclick = (e) => {
         document.getElementById('info').classList.toggle('expanded');
     }
 })();
