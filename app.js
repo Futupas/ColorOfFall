@@ -51,6 +51,8 @@ let getPhoto = async () => {
     let bigSrc = json.photos[0].src.large2x;
     let image = document.getElementById('img');
     image.src = `${smallSrc}`;
+    document.getElementById('photographer').href = json.photos[0].photographer_url;
+    document.getElementById('photographer').innerText = json.photos[0].photographer;
     // image.bigSrc = `${bigSrc}`;
     // image.onload = () => {
     //     if (image.bigSrc) {

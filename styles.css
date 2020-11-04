@@ -80,7 +80,7 @@ body {
     height: 10vh;
     background-color: #000;
     opacity: .5;
-    animation: title_animation 7s linear 0s infinite;
+    animation: title_animation 7s linear 2s infinite;
 }
 /* #info > #animation.expanded {
     top: 10vh;
@@ -99,6 +99,11 @@ body {
     font-size: 4vh;
     color: white;
     text-align: center;
+}
+
+#info a{
+    color: rgb(197, 201, 255);
+    text-decoration: underline;
 }
 
 #info p{
