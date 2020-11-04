@@ -129,14 +129,3 @@ async function main() {
         }
     }
 })();
-
-
-
-
-
-/*
-
-original:
-filter: saturate(1000%) brightness(200%) contrast(1000%) hue-rotate(215deg);
-
-*/
