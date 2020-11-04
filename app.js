@@ -1,6 +1,7 @@
 'use strict';
 
 const PARAMATERS = {
+    scrollMargin: 5,
     query: 'fall',
     quantityOfPhotos: 1000,
     divSize: 5,
@@ -83,14 +84,20 @@ function setDivSize() {
 
 function setHueRotate() {
     let hueRotate = random(0, 360);
-    let divScroll = map(hueRotate, 0, 360, 0, PARAMATERS.divSize*document.documentElement.clientWidth);
+    let divScroll = map(hueRotate, 0, 360, 0 + PARAMATERS.scrollMargin, PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMargin);
     let resultString = `hue-rotate(${hueRotate}deg) `;
 
     document.getElementById('scrollcontainer').scrollTo(divScroll, 0);
     document.getElementById('scrollcontainer').onscroll = (e) => {
         let scroll = document.getElementById('scrollcontainer').scrollLeft;
-        let hueRotate = map(scroll, 0, PARAMATERS.divSize*document.documentElement.clientWidth, 0, 360);
-        console.log(hueRotate);
+        if (scroll < 0 + PARAMATERS.scrollMargin) {
+            document.getElementById('scrollcontainer').scrollTo(PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMargin, 0);
+            return;
+        } else if (scroll > PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMargin) {
+            document.getElementById('scrollcontainer').scrollTo(0 + PARAMATERS.scrollMargin, 0);
+            return;
+        }
+        let hueRotate = map(scroll, 0 + PARAMATERS.scrollMargin, PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMargin, 0, 360);
         document.getElementById('img').style.filter = FILTER_STRING + `hue-rotate(${hueRotate}deg) `;
     };
 
