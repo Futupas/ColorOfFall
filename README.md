@@ -1,2 +1,6 @@
-# coloroffall
-The second my art (first was Prozhektor Perestroiki): Color of Fall
+# Color of Fall
+https://futupas.github.io/ColorOfFall/
+
+special thanks for [stackoverflow](https://stackoverflow.com/).
+[typograf](https://www.artlebedev.ru/typograf/) 
+this is the future of the art.

@@ -93,3 +93,45 @@ body {
 #info p:last-child{
     margin-bottom: 0px;
 }
+
+#info a.smlink,
+#info a.smlink:visited{
+    display: block;
+    font-size: 1em;
+    padding-left: 1em;
+    color: white;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: .9em .9em;
+    animation: none;
+    margin-left: 1em;
+}
+
+#info a.smlink:hover,
+#info a.smlink:active{
+    display: block;
+    /* padding-left: 2em; */
+    font-size: 1em;
+    color: white;
+    text-decoration: none;
+    background-repeat: no-repeat;
+    background-size: .9em .9em;
+    animation: link_animation 1s ease-out 0s infinite;
+    transition: padding-left 1s ease-out, background-position 1s ease-out;
+}
+
+@keyframes link_animation{
+    0% {
+        padding-left: 1em;
+        background-position: 0em center;
+    }
+    50% {
+        padding-left: 2em;
+        background-position: 1em center;
+    }
+    100% {
+        padding-left: 1em;
+        background-position: 0em center;
+    }
+}
