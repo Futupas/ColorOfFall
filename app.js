@@ -2,6 +2,8 @@
 
 const PARAMATERS = {
     scrollMargin: 5,
+    scrollMarginJump: 10,
+    keyScrollPx: 100,
     query: 'fall',
     quantityOfPhotos: 1000,
     divSize: 5,
@@ -91,10 +93,10 @@ function setHueRotate() {
     document.getElementById('scrollcontainer').onscroll = (e) => {
         let scroll = document.getElementById('scrollcontainer').scrollLeft;
         if (scroll < 0 + PARAMATERS.scrollMargin) {
-            document.getElementById('scrollcontainer').scrollTo(PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMargin, 0);
+            document.getElementById('scrollcontainer').scrollTo(PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMarginJump, 0);
             return;
         } else if (scroll > PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMargin) {
-            document.getElementById('scrollcontainer').scrollTo(0 + PARAMATERS.scrollMargin, 0);
+            document.getElementById('scrollcontainer').scrollTo(0 + PARAMATERS.scrollMarginJump, 0);
             return;
         }
         let hueRotate = map(scroll, 0 + PARAMATERS.scrollMargin, PARAMATERS.divSize*document.documentElement.clientWidth - PARAMATERS.scrollMargin, 0, 360);
@@ -114,8 +116,15 @@ async function main() {
 (async () => {
     main();
 
-    document.getElementById('btn').onclick = (e) => {
-        document.getElementById('info').classList.toggle('expanded');
+    document.onkeydown = (e) => {
+        let code = e.code;
+        if (code == 'KeyA' || code == 'ArrowLeft') {
+            document.getElementById('scrollcontainer').scrollBy(-1*PARAMATERS.keyScrollPx, 0);
+            e.preventDefault();
+        } else if (code == 'KeyD' || code == 'ArrowRight') {
+            document.getElementById('scrollcontainer').scrollBy(PARAMATERS.keyScrollPx, 0);
+            e.preventDefault();
+        }
     }
 })();
 
