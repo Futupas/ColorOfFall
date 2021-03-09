@@ -111,7 +111,8 @@ function setHueRotate() {
 
 async function main() {
     setDivSize();
-    await getPhoto(Math.round(random(1, PARAMATERS.quantityOfPhotos)));
+    await getPhoto();
+    // await getPhoto(Math.round(random(1, PARAMATERS.quantityOfPhotos)));
     document.getElementById('img').style.filter = FILTER_STRING + setHueRotate();
 }
 
